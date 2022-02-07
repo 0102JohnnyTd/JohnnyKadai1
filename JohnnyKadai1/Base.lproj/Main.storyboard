@@ -19,27 +19,27 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="mfh-eJ-JzI">
                                 <rect key="frame" x="20" y="144" width="374" height="618"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xD4-lX-4Me" userLabel="First Text Field">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xD4-lX-4Me" userLabel="First Value Text Field">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="54"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N1l-Ti-AfX" userLabel="SecondText Field">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N1l-Ti-AfX" userLabel="Second Value Text Field">
                                         <rect key="frame" x="0.0" y="94" width="374" height="54"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gt3-Kd-jWJ" userLabel="Third Text Field">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gt3-Kd-jWJ" userLabel="Third Value Text Field">
                                         <rect key="frame" x="0.0" y="188" width="374" height="54"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s5e-Lt-WgD" userLabel="Fourth Text Field">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s5e-Lt-WgD" userLabel="Fourth Value Text Field">
                                         <rect key="frame" x="0.0" y="282" width="374" height="54"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="05n-ZX-sPO" userLabel="Fifth Text Field">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="05n-ZX-sPO" userLabel="Fifth Value Text Field">
                                         <rect key="frame" x="0.0" y="376" width="374" height="54"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -69,6 +69,15 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mfh-eJ-JzI" secondAttribute="bottom" constant="100" id="eFo-Ga-Xhb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="caluclateButton" destination="cQN-bC-6NO" id="yEF-Wz-z5T"/>
+                        <outlet property="fifthValuetextField" destination="05n-ZX-sPO" id="LUS-yk-aMI"/>
+                        <outlet property="firstValueTextField" destination="xD4-lX-4Me" id="KDN-iX-Uva"/>
+                        <outlet property="fourthValueTextField" destination="s5e-Lt-WgD" id="Il5-7g-KdM"/>
+                        <outlet property="resultLabel" destination="fcn-aQ-Gv9" id="75f-Av-9G4"/>
+                        <outlet property="secondValueTextField" destination="N1l-Ti-AfX" id="caO-MP-gt4"/>
+                        <outlet property="thirdValueTextField" destination="Gt3-Kd-jWJ" id="XhC-qn-ZYr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
