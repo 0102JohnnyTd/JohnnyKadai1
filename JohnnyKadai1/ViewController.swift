@@ -23,6 +23,7 @@ class ViewController: UIViewController {
             caluclateButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         }
     }
+
     @objc func didTapButton() {
         let firstValue = firstValueTextField.textToInt
         let secondValue = secondValueTextField.textToInt
@@ -30,15 +31,16 @@ class ViewController: UIViewController {
         let fourthValue = fourthValueTextField.textToInt
         let fifthValue = fifthValuetextField.textToInt
 
-        let total = firstValue + secondValue + thirdValue + fourthValue + fifthValue
-        resultLabel.text = String(total)
-    }
+        let totalValue = firstValue + secondValue + thirdValue + fourthValue + fifthValue
+
+        // 入力値の合計がInt.maxを超えるとクラッシュするのを防ぎたかったが、結局わからなかった。
+//        if totalValue > Int.max {
+//            resultLabel.text = "合計値が大きすぎるため扱うことができません"
+//        } else {
+//            resultLabel.text = String(totalValue)
+//        }
 
     @IBOutlet weak private var resultLabel: UILabel!
-
-    
-
-
 }
 // 修飾子extensionでUITextFieldクラスにコンピューテッドプロパティを追加する
 extension UITextField {
