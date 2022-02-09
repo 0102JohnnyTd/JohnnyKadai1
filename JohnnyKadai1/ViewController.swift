@@ -34,28 +34,19 @@ class ViewController: UIViewController {
         resultLabel.text = String(total)
     }
 
-//    func executeCalculation() {
-//        let firstValue:Int? = Int(firstValueTextField.text ?? "")
-//        let secondValue:Int? = Int(secondValueTextField.text ?? "")
-//        let thirdValue:Int? = Int(thirdValueTextField.text ?? "")
-//        let fourthValue:Int? = Int(fourthValueTextField.text ?? "")
-//        let fifthValue:Int? = Int(fifthValuetextField.text ?? "")
-//
-//        let result = firstValue + secondValue + thirdValue + fourthValue + fifthValue
-//    }
-
     @IBOutlet weak private var resultLabel: UILabel!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-}
+    
 
+
+}
+// 修飾子extensionでUITextFieldクラスにコンピューテッドプロパティを追加する
 extension UITextField {
+    // String?型のtextプロパティをInt型に変換して値を取得するコンピューテッドプロパティの宣言
     var textToInt: Int {
-        let text = self.text
-        let int = text.flatMap{Int($0)} ?? 0
-        return int
+        // flatMap(_:)メソッドでtextをString？型からInt型に変換する
+        let convertedValue = text.flatMap { Int($0) } ?? 0
+        // 戻り値
+        return convertedValue
     }
 }
