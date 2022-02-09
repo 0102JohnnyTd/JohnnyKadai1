@@ -8,6 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+
     @IBOutlet weak private var firstValueTextField: UITextField!
 
     @IBOutlet weak private var secondValueTextField: UITextField!
@@ -32,16 +33,20 @@ class ViewController: UIViewController {
         let fifthValue = fifthValuetextField.textToInt
 
         let totalValue = firstValue + secondValue + thirdValue + fourthValue + fifthValue
+        resultLabel.text = String(totalValue)
 
         // 入力値の合計がInt.maxを超えるとクラッシュするのを防ぎたかったが、結局わからなかった。
-//        if totalValue > Int.max {
-//            resultLabel.text = "合計値が大きすぎるため扱うことができません"
-//        } else {
-//            resultLabel.text = String(totalValue)
-//        }
+        //        if totalValue > Int.max {
+        //            resultLabel.text = "合計値が大きすぎるため扱うことができません"
+        //        } else {
+        //            resultLabel.text = String(totalValue)
+        //        }
+
+    }
 
     @IBOutlet weak private var resultLabel: UILabel!
 }
+
 // 修飾子extensionでUITextFieldクラスにコンピューテッドプロパティを追加する
 extension UITextField {
     // String?型のtextプロパティをInt型に変換して値を取得するコンピューテッドプロパティの宣言
