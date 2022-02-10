@@ -50,8 +50,11 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Calculate button">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="didTapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cfa-MK-2ze"/>
+                                        </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcn-aQ-Gv9">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Result Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcn-aQ-Gv9">
                                         <rect key="frame" x="0.0" y="564" width="374" height="54"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <nil key="textColor"/>
@@ -66,7 +69,7 @@
                             <constraint firstItem="mfh-eJ-JzI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="I39-NT-GzJ"/>
                             <constraint firstItem="mfh-eJ-JzI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="TFm-6f-LsT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mfh-eJ-JzI" secondAttribute="trailing" constant="20" id="Zve-a5-4uS"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mfh-eJ-JzI" secondAttribute="bottom" constant="100" id="eFo-Ga-Xhb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mfh-eJ-JzI" secondAttribute="bottom" priority="999" constant="100" id="eFo-Ga-Xhb"/>
                         </constraints>
                     </view>
                     <connections>
