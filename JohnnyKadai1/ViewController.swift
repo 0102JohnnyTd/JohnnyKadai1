@@ -7,7 +7,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
+    private var textFields: [UITextField] { [firstValueTextField, secondValueTextField, thirdValueTextField, fourthValueTextField, fifthValuetextField]
+    }
+
     @IBOutlet weak private var firstValueTextField: UITextField!
 
     @IBOutlet weak private var secondValueTextField: UITextField!
@@ -22,7 +25,6 @@ class ViewController: UIViewController {
 
     @IBAction private func didTapButton(_ sender: Any) {
         do {
-            let textFields: [UITextField] = [firstValueTextField, secondValueTextField, thirdValueTextField, fourthValueTextField, fifthValuetextField]
             // textFieldの値をInt型に変換
             let values = textFields.map { $0.textToInt }
             // extensionで追加したInt型の拡張機能であるaddingReportingOverflowWithErrorメソッドを実行
@@ -43,6 +45,14 @@ class ViewController: UIViewController {
     }
 
     @IBOutlet weak private var resultLabel: UILabel!
+
+    override func viewDidLoad() {
+        setUpKeyboardType()
+    }
+
+    private func setUpKeyboardType() {
+        textFields.forEach { $0.keyboardType = .numberPad }
+    }
 }
 
 // 修飾子extensionでUITextFieldクラスにコンピューテッドプロパティを追加する
