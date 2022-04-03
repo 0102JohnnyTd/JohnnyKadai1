@@ -21,25 +21,15 @@ class ViewController: UIViewController {
     @IBOutlet weak private var caluclateButton: UIButton!
 
     @IBAction private func didTapButton(_ sender: Any) {
-        // エラーが発生する可能性のある処理の記述
         do {
+            let textFields: [UITextField] = [firstValueTextField, secondValueTextField, thirdValueTextField, fourthValueTextField, fifthValuetextField]
             // textFieldの値をInt型に変換
-            let firstValue = firstValueTextField.textToInt
-            let secondValue = secondValueTextField.textToInt
-            let thirdValue = thirdValueTextField.textToInt
-            let fourthValue = fourthValueTextField.textToInt
-            let fifthValue = fifthValuetextField.textToInt
-            // Int型の合計値を集める箱を宣言
-            var totalValue = 0
+            let values = textFields.map { $0.textToInt }
             // extensionで追加したInt型の拡張機能であるaddingReportingOverflowWithErrorメソッドを実行
                // addingReportingOverflowWithError()メソッドはthrowsキーワードがついているため、実行前にtryをつける
-            totalValue = try totalValue.addingReportingOverflowWithError(firstValue)
-            totalValue = try totalValue.addingReportingOverflowWithError(secondValue)
-            totalValue = try totalValue.addingReportingOverflowWithError(thirdValue)
-            totalValue = try totalValue.addingReportingOverflowWithError(fourthValue)
-            totalValue = try totalValue.addingReportingOverflowWithError(fifthValue)
+            let totalValue = try values.reduce(0, { try $0.addingReportingOverflowWithError($1) })
             // エラーが発生しなかった場合の処理
-            resultLabel.text = String(totalValue)
+            resultLabel.text = "\(totalValue)"
         } // エラーが発生した場合の処理の記述
         catch {
             // エラーの分岐
@@ -57,14 +47,11 @@ class ViewController: UIViewController {
 
 // 修飾子extensionでUITextFieldクラスにコンピューテッドプロパティを追加する
 extension UITextField {
-    // String?型のtextプロパティをInt型に変換して値を取得するコンピューテッドプロパティの宣言
     var textToInt: Int {
-        // flatMap(_:)メソッドでtextをString？型からInt型に変換　する
-        let convertedValue = text.flatMap { Int($0) } ?? 0
-        // 戻り値
-        return convertedValue
+        text.flatMap { Int($0) } ?? 0
     }
 }
+
 // Errorプロトコルに準拠した構造体を生成
 private struct OverflowError: Error {}
 
@@ -74,12 +61,13 @@ private extension Int {
     func  addingReportingOverflowWithError(_ other: Int) throws -> Int {
         // 定数resultにaddingReportingOverflow()メソッドを代入。
         let result = addingReportingOverflow(other)
-        // 条件分岐
+        // 条件: result.overflowの結果の否定
         guard !result.overflow else {
-            // overflowがtrueの場合、throw文によってOverflowErrorを発生させる
+           // false:
+             // 本来はfalse(overflowしてない場合)の処理を書くが、!resultとあるように否定している。
             throw OverflowError()
         }
-        // overflowがfalseの場合、全体の合計値を返す
+        // true:
            // addingReportingOverflow()メソッドの戻り値はtupleであるため、代入されたresultは値にアクセスできる
         return result.partialValue
     }
